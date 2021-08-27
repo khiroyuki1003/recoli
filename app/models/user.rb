@@ -8,4 +8,6 @@ class User < ApplicationRecord
     validates :nickname
     validates :birth_date
   end
+
+  validates :password, format: {with: /\A[a-zA-Z0-9]+\z/, message:"is invalid. Half-width alphanumeric only."}
 end
