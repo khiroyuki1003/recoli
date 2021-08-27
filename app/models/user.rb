@@ -9,6 +9,6 @@ class User < ApplicationRecord
     validates :birth_date
   end
 
-  validates :password, format: {with: /\A[a-zA-Z0-9]+\z/, message:"is invalid. Half-width alphanumeric only."}
+  validates :password, format: {with: /\A[a-zA-Z0-9]+\z/, message:"is invalid. Half-width alphanumeric only"}
   validates :precious_word, length: { maximum: 100, message:"is invalid. Please enter at least 100 characters"}
 end
