@@ -1,5 +1,5 @@
 <div>
- こんにちは
+ こんにちは<%= link_to @user.profile.nickname, profile_path(@user.id)  %>さん
 </div>
 
 <div>
