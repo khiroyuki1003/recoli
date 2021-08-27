@@ -6,14 +6,9 @@
       </h1>
     </div>
 
-    <%# <%= render 'shared/error_messages', model: @user %> %>
+    <%= render 'shared/error_messages', model: @user %>
 
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">ニックネーム※必須</label>
-      </div>
-      <%= f.text_area  :nickname, class:"input-default", id:"nickname", placeholder:"Recoli太一", maxlength:"20", autofocus: true %>
-    </div>
+    
     <div class="form-group">
       <div class='form-text-wrap'>
         <label class="form-text">メールアドレス※必須</label>
@@ -32,6 +27,12 @@
         <label class="form-text">パスワード(確認)※必須</label>
       </div>
       <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ニックネーム※必須</label>
+      </div>
+      <%= f.text_area  :nickname, class:"input-default", id:"nickname", placeholder:"Recoli太一", maxlength:"20", autofocus: true %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
