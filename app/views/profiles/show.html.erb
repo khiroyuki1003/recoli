@@ -1,0 +1,22 @@
+<div class="header-logo">
+  <%= link_to 'RecoLi', root_path %>
+</div>
+
+<div>
+  <%= @profile.nickname %>さんのプロフィール
+</div>
+
+<div>
+  <%= link_to "プロフィールの編集",  edit_profile_path(@profile.id) %>
+</div>
+
+<div>
+  <%= @profile.precious_word %>
+</div>
+
+<div>
+  <div>
+    <%= @profile.birth_date.year %>年<%= @profile.birth_date.month %>月<%= @profile.birth_date.day %>日生まれ
+    <%= Date.today.year - @profile.birth_date.year%>歳
+  </div>
+</div>
