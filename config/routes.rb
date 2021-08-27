@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     } 
   root to:'categories#index'
 
-  resources :profiles, only: [:new, :create]
+
+  resources :profiles, only: [:new, :create, :show, :edit, :update]
 end
