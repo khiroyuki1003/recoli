@@ -12,16 +12,6 @@ RSpec.describe User, type: :model do
   end 
 
   context 'ユーザー登録できない時' do
-    it 'nicknameが空では登録できない' do
-      @user.nickname = ''
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Nickname can't be blank")
-    end
-    it 'nicknameは20文字以下でないと登録できない' do
-      @user.nickname = '123456789012345678901'
-      @user.valid?
-      expect(@user.errors.full_messages).to include('Nickname is invalid. Please enter at least 20 characters')
-    end
     it 'emailが空では登録できない' do
       @user.email = ''
       @user.valid?
@@ -61,17 +51,7 @@ RSpec.describe User, type: :model do
       @user.password_confirmation = '123abc' 
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
-    end
-    it 'precious_wordは100文字以下でないと登録できない' do
-      @user.precious_word = '12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901'
-      @user.valid?
-      expect(@user.errors.full_messages).to include('Precious word is invalid. Please enter at least 100 characters')
-    end
-    it 'birth_dateが空では登録できない' do
-      @user.birth_date = nil
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Birth date can't be blank")
-    end
+    end 
   end
 end
  
