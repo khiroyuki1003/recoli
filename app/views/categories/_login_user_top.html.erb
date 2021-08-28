@@ -1,6 +1,8 @@
-<div>
- こんにちは<%= link_to @user.profile.nickname, profile_path(@user.id)  %>さん
-</div>
+<% if @user.profile.present? %>
+  <%= render "profile_save_top" %>
+<% else %>
+  <%= render "profile_not_save_top" %>
+<% end %>
 
 <div>
   <%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "logout"  %>
