@@ -7,3 +7,7 @@
 <div>
   <%= link_to "プロフィール登録はこちらから", new_profile_path %>
 </div>
+
+<div>
+  <%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "logout"  %>
+</div>
