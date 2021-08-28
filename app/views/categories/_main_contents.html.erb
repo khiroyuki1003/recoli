@@ -1,3 +1,16 @@
-<div>
- main＿contents
+<div class='category-contents'>
+  <h2 class='title'>カテゴリ一覧</h2>
+
+  <ul class='category-lists'>
+        <% @category.each do |category| %>
+          <li class='list'>
+            <div class='category-info'>
+              <h3 class='category-name'>
+                <%= category.category_name %>
+              </h3>
+            </div>        
+          </li>
+        <% end %>
+    </ul>
+  </div>
 </div>

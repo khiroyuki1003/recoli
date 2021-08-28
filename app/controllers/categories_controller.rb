@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :get_user, only: [:index, :new, :create]
 
   def index
-    
+    @category = Category.includes(:profile).order("created_at DESC")
   end
 
   def new
@@ -11,15 +11,15 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @create = Category.new(category_params)
-    if @create.save
+    @category = Category.new(category_params)
+    if @category.save
       redirect_to root_path
     else
       render :new
     end
   end
 
-  private
+  private 
   def get_user
     if user_signed_in?
       @user = User.find(current_user.id)
