@@ -1,0 +1,16 @@
+<div>
+  <%= link_to @user.profile.nickname, profile_path(@user.id) %>さん
+</div>
+
+<div>
+  <%= link_to 'ログアウト', destroy_user_session_path , method: :delete  %>
+</div>
+
+<div>
+  <%= link_to "ホームへ戻る", root_path %>
+</div>
+
+
+<div>
+  <%= link_to "カテゴリー新規作成", new_profile_category_path(@user.profile.id) %>
+</div> 
