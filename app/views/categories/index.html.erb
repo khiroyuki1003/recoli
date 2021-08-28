@@ -1,1 +1,5 @@
-RecoLi実装開始
+<% if user_signed_in? %>
+  <%= render "login_user_top" %>
+<% else %>
+  <%= render "new_user_top" %>
+<% end %>
