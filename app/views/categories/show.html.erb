@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "side_bar" %>
+  </div>
+  <div class="main-contents">
+    <div class="contents">
+      <h2 class="title">
+        <%= @category.category_name %>
+      </h2>
+      <div>
+        <%= link_to "カテゴリ名を変更する",  edit_profile_category_path(@user.profile.id, @category.id) %>
+      </div>
+      <div>
+        <%= link_to "カテゴリを削除する",  profile_category_path(@user.profile.id, @category.id), method: :delete %>
+      </div>
+    </div>
+  </div>
+</div>
+

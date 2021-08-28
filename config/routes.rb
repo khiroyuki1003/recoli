@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
 
   resources :profiles, only: [:new, :create, :show, :edit, :update] do
-    resources :categories, only: [:new, :create]
+    resources :categories, only: [:new, :create, :show, :edit, :update, :destroy]
   end
 end
