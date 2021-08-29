@@ -4,9 +4,10 @@
     <div class="word-content"><%= @user.profile.precious_word %></div>
   </div>
   <h2 class='title'>カテゴリ一覧</h2>
-
-  <ul class='category-lists'>
-        <% @category.each do |category| %>
+  <div>
+    <ul class='category-lists'>
+      <% if @categories.present? %>
+        <% @categories.each do |category| %>
           <li class='list'>
             <div class='category-info'>
               <h3 class='category-name'>
@@ -15,6 +16,7 @@
             </div>        
           </li>
         <% end %>
+      <% end %>
     </ul>
   </div>
 </div>

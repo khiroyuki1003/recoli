@@ -6,7 +6,9 @@ class CategoriesController < ApplicationController
 
 
   def index
-    @category = Category.where(profile_id: @user.profile.id)
+    if user_signed_in? && @user.profile.present? && @user.profile.categories.present?
+      @categories = Category.where(profile_id: @user.profile.id)
+    end
   end
 
   def new
