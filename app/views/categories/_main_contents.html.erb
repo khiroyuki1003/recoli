@@ -1,0 +1,20 @@
+<div class='contents'>
+  <div class="precious-word">
+    <h2 class="word-title">あなたが大切にしている言葉</h2>
+    <div class="word-content"><%= @user.profile.precious_word %></div>
+  </div>
+  <h2 class='title'>カテゴリ一覧</h2>
+
+  <ul class='category-lists'>
+        <% @category.each do |category| %>
+          <li class='list'>
+            <div class='category-info'>
+              <h3 class='category-name'>
+                <%= link_to category.category_name,  profile_category_path(@user.profile.id, category.id) %>
+              </h3>
+            </div>        
+          </li>
+        <% end %>
+    </ul>
+  </div>
+</div>

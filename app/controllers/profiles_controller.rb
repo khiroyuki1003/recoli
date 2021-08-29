@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :show, :edit, :update]
+  before_action :set_user, only: [:new, :show, :edit, :update]
   before_action :set_profile, only: [:show, :edit, :update]
-  before_action :user_profile_check, only: [:edit, :update]
+  before_action :user_profile_check, only: [:new, :edit, :update]
 
   def new
     @profile = Profile.new
@@ -36,13 +37,18 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:nickname, :precious_word, :birth_date).merge(user: current_user)
   end
 
+  def set_user
+    @user = User.find(current_user.id)
+  end
+
   def set_profile
-    @profile = Profile.find(current_user.profile.id)
+    @profile = Profile.find(@user.profile.id)
   end
 
   def user_profile_check
-    if @profile.user != current_user
+    if @user.profile.present?
       redirect_to root_path
     end
   end
 end
+ 
