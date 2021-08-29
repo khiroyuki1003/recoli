@@ -50,7 +50,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_access_check
-    binding.pry
     if @profile.id != @user.profile.id
       redirect_to root_path
     end
