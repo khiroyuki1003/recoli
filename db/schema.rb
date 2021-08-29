@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_080811) do
+ActiveRecord::Schema.define(version: 2021_08_29_073108) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "category_name", null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2021_08_28_080811) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_categories_on_profile_id"
+  end
+
+  create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "list_title", null: false
+    t.text "list_detail", null: false
+    t.integer "priority_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_lists_on_category_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,5 +53,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_080811) do
   end
 
   add_foreign_key "categories", "profiles"
+  add_foreign_key "lists", "categories"
   add_foreign_key "profiles", "users"
 end
