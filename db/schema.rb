@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_08_29_073108) do
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "list_title", null: false
-    t.text "list_detail", null: false
-    t.integer "priority_id", null: false
+    t.text "list_detail"
+    t.integer "priority_id"
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

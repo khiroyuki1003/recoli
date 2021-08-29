@@ -1,4 +1,4 @@
-class Category < ActiveHash::Base
+class Priolity < ActiveHash::Base
   self.data = [
     {id:1, name: '---'},
     {id:2, name: '大'},
@@ -8,4 +8,4 @@ class Category < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :lists
-end
+end 
