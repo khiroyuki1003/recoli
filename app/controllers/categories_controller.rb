@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :get_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  before_action :get_user
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :category_access_check, only: [:show, :edit, :update, :destroy]
+
 
   def index
-    @category = Category.includes(:profile)
+    @category = Category.where(profile_id: @user.profile.id)
   end
 
   def new
@@ -46,12 +48,18 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def category_params
-    params.require(:category).permit(:category_name).merge(profile: @user.profile)
-  end
-
   def set_category    
     @category = Category.find(params[:id])
+  end
+
+  def category_access_check
+    if @category.profile_id != @user.profile.id
+      redirect_to root_path
+    end
+  end
+
+  def category_params
+    params.require(:category).permit(:category_name).merge(profile: @user.profile)
   end
 
 end 
