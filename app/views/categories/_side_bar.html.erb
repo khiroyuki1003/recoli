@@ -14,3 +14,9 @@
 <div>
   <%= link_to "カテゴリー新規作成", new_profile_category_path(@user.profile.id) %>
 </div> 
+
+<div>
+  <% if @user.profile.categories.present? %>
+    <%= link_to "リスト新規作成", new_profile_category_list_path(@user.profile.id, @user.profile.categories.first.id) %>
+  <% end %>
+</div> 
