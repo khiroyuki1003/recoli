@@ -19,7 +19,6 @@ class ListsController < ApplicationController
   end
 
   def show
-
   end
 
   private
