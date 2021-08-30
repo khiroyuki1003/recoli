@@ -1,8 +1,9 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_user
-  before_action :set_category, only: [:new, :create]
-  before_action :category_access_check, only: [:new, :create]
+  before_action :set_category, only: [:new, :create, :show]
+  before_action :category_access_check, only: [:new, :create, :show]
+  before_action :set_list, only: [:show]
 
   def new
     @list = List.new
@@ -15,6 +16,10 @@ class ListsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+
   end
 
   private
@@ -39,6 +44,8 @@ class ListsController < ApplicationController
     params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: category)
   end
 
-
+  def set_list
+    @list = List.find(params[:id])
+  end
 end
  

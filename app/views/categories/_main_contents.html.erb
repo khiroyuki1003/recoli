@@ -25,8 +25,7 @@
                       <li class='list'>
                         <div class='list-info'>
                           <h3 class='list-title'>
-                            <%= list.list_title %>
-                            <%# <%= link_to category.category_name,  profile_category_path(@user.profile.id, category.id) %> 
+                            <%= link_to list.list_title, profile_category_list_path(@user.profile.id, category.id, list.id) %>
                           </h3>
                         </div>        
                       </li>
