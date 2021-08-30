@@ -1,9 +1,9 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_user
-  before_action :set_category, only: [:new, :create, :show]
-  before_action :category_access_check, only: [:new, :create, :show]
-  before_action :set_list, only: [:show]
+  before_action :set_category, only: [:new, :create, :show, :edit, :update]
+  before_action :category_access_check, only: [:new, :create, :show, :edit, :update]
+  before_action :set_list, only: [:show, :edit, :update]
 
   def new
     @list = List.new
@@ -20,6 +20,19 @@ class ListsController < ApplicationController
 
   def show
   end
+
+  def edit
+  end
+
+  def update
+    if @list.update(list_params)
+      redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
+    else
+      render :edit
+    end
+  end
+
+
 
   private
   def get_user

@@ -10,11 +10,8 @@
           <%= @list.category.category_name %>
         </div>
       </h2>
-      <%# <div>
-        <%= link_to "カテゴリ名を変更する",  edit_profile_category_path(@user.profile.id, @category.id) %>
-      <%# </div>
-      <div>
-        <%= link_to "カテゴリを削除する",  profile_category_path(@user.profile.id, @category.id), method: :delete, data: { confirm: '削除を実行すると、カテゴリ内で作成したリストやプロセス、リマインドなどが全て削除されます。削除してよろしいですか？' } %>
+      <%# <div> %>
+        <%# <%= link_to "カテゴリを削除する",  profile_category_path(@user.profile.id, @category.id), method: :delete, data: { confirm: '削除を実行すると、カテゴリ内で作成したリストやプロセス、リマインドなどが全て削除されます。削除してよろしいですか？' } %> %>
       <%# </div> %>
       <%# <div>
         <%= link_to "新しいリストを作成する",  new_profile_category_list_path(@user.profile.id, @category.id) %>
@@ -29,6 +26,11 @@
         <% else %>
           優先度： --
         <% end %>
+      </div>
+
+
+      <div>
+        <%= link_to "リストを修正する",  edit_profile_category_list_path(@user.profile.id, @category.id, @list.id) %>
       </div>
     </div> 
   </div>
