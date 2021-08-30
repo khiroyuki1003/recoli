@@ -36,7 +36,7 @@
             <div class='form-text-wrap'>
               <label class="form-text">優先度（大・中・小から選んでください）※設定は任意です。</label>
             </div>
-            <%= f.collection_select(:priolity_id, Priolity.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
+            <%= f.collection_select(:priority_id, Priority.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
           </div>
           <div class='register-btn'>
             <%= f.submit "リスト作成" ,class:"register-red-btn" %>
