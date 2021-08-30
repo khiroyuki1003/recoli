@@ -1,9 +1,9 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_user
-  before_action :set_category, only: [:new, :create, :show, :edit, :update]
-  before_action :category_access_check, only: [:new, :create, :show, :edit, :update]
-  before_action :set_list, only: [:show, :edit, :update]
+  before_action :set_category, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :category_access_check, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def new
     @list = List.new
@@ -32,6 +32,10 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to profile_category_path(@user.profile.id, @category.id)
+  end
 
 
   private
