@@ -8,10 +8,9 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
-require("moment").start()
-require("fullcalendar").start()
-require("fullcalendar/locale-all").start()
+require("moment")
+require("fullcalendar")
+require("fullcalendar/locale-all")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -22,3 +21,6 @@ require("fullcalendar/locale-all").start()
 
 
 $('#calendar').fullCalendar({});
+
+
+  
