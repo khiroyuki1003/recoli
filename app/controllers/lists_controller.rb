@@ -6,12 +6,13 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def new
-    @list = List.new
+    @list = ListListDeadline.new
   end
 
   def create
-    @list = List.new(list_params)
-    if @list.save
+    @list  = ListListDeadline.new(list_params)
+    if @list.valid?  
+      @list.save
       redirect_to  profile_category_path(@user.profile.id, @category.id)
     else
       render :new
@@ -56,12 +57,21 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    @category = Category.find(params[:list][:category_id].to_i)
-    params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: @category)
+    @category = Category.find(params[:list_list_deadline][:category_id].to_i)
+    params.require(:list_list_deadline).permit(
+      :category_id, :list_title, :list_detail, :priority_id, 
+      :list_deadline_date, :list_deadline_time
+    ).merge(category: @category)
   end
 
-  def set_list
-    @list = List.find(params[:id])
+  # def list_params
+    # @category = Category.find(params[:list][:category_id].to_i)
+    # params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: @category)
+  # end
+
+  def set_list_list_deadline
+    @list = List.find(params[:id]) 
+    # @list_deadline = ListDeadline.find()
   end
 end
   

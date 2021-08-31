@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2021_08_31_064617) do
   end
 
   create_table "list_deadlines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "list_dead_line_date", null: false
-    t.time "list_dead_line_time", null: false
+    t.date "list_deadline_date", null: false
+    t.time "list_deadline_time", null: false
     t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
