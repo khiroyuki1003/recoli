@@ -20,3 +20,8 @@
     <%= link_to "リスト新規作成", new_profile_category_list_path(@user.profile.id, @user.profile.categories.first.id) %>
   <% end %>
 </div> 
+<div>
+  <% if @user.profile.categories.present? && @user.profile.categories.first.lists.present? %>
+    <%= link_to "カレンダーを見る",  profile_category_list_list_deadlines_path(@user.profile.id, @user.profile.categories.first.id, @user.profile.categories.first.lists.first.id)  %>
+  <% end %>
+</div> 
