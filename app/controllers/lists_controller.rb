@@ -29,7 +29,7 @@ class ListsController < ApplicationController
       redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
     else
       render :edit
-    end
+    end 
   end
 
   def destroy
@@ -56,12 +56,12 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    category = Category.find(params[:list][:category_id].to_i)
-    params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: category)
+    @category = Category.find(params[:list][:category_id].to_i)
+    params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: @category)
   end
 
   def set_list
     @list = List.find(params[:id])
   end
 end
- 
+  
