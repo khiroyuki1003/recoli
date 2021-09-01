@@ -22,6 +22,20 @@
         <% end %>
       </div>
 
+       <div>
+       達成目標日
+        <%=link_to @list.list_deadline.list_deadline_date.strftime('%Y/%m/%d'), profile_category_list_list_deadlines_path(@user.profile.id, @category.id, @list.id)%>（<%= @list.list_deadline.list_deadline_time.strftime( "%H:%M" ) %>）
+      </div>
+      <div>
+       目標年時の年齢
+       <div>
+          <% if ( @user.profile.birth_date.month == @list.list_deadline.list_deadline_date.month && @user.profile.birth_date.day >= @list.list_deadline.list_deadline_date.day ) || @user.profile.birth_date.month >= @list.list_deadline.list_deadline_date.month %>
+            <%= @list.list_deadline.list_deadline_date.year - @user.profile.birth_date.year - 1 %>歳
+          <% else %>
+            <%= @list.list_deadline.list_deadline_date.year - @user.profile.birth_date.year %>歳
+          <% end %>
+        </div>
+      </div>
 
       <div>
         <%= link_to "リストを修正する",  edit_profile_category_list_path(@user.profile.id, @category.id, @list.id) %>
@@ -30,5 +44,5 @@
         <%= link_to "リストを削除する",  profile_category_list_path(@user.profile.id, @category.id, @list.id), method: :delete, data: { confirm: '削除を実行すると、リストの情報や設定したリマインド、追加した感想などが全て削除されます。削除を実行しますか？' } %>
       </div>
     </div> 
-  </div> 
+  </div>  
 </div>
