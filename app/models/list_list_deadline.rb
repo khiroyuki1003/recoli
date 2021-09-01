@@ -7,14 +7,19 @@ class  ListListDeadline
     maximum: 100, message:"is invalid. Please enter at least 100 characters"
    }
 
-   def save
+   with_options presence: true do
+    validates :list_deadline_date
+    validates :list_deadline_time
+  end
+
+  def save
     list = List.create(
       list_title: list_title, list_detail: list_detail,
-       priority_id: priority_id, category_id: category_id
+      priority_id: priority_id, category_id: category_id
     )
     ListDeadline.create(
       list_deadline_date: list_deadline_date,
-       list_deadline_time: list_deadline_time, list_id: list.id
-     )
+      list_deadline_time: list_deadline_time, list_id: list.id
+    )
   end
-end
+end 
