@@ -1,7 +1,8 @@
 class ListDeadlinesController < ApplicationController
   before_action :authenticate_user!
   before_action :get_user
-  before_action :set_category, only: [:edit, :update]
+  before_action :set_category
+  before_action :category_access_check
   before_action :set_list
   before_action :set_list_deadline, only: [:edit, :update]
 
@@ -10,7 +11,7 @@ class ListDeadlinesController < ApplicationController
 
   def edit
   end
-
+ 
   def update
     if @list_deadline.update(list_deadline_params)
       redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
@@ -28,6 +29,12 @@ class ListDeadlinesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:category_id])
+  end
+
+  def category_access_check
+    if @category.profile_id != @user.profile.id
+      redirect_to root_path
+    end
   end
 
   def set_list
