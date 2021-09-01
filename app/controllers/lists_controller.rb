@@ -26,7 +26,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    if @list.update(list_params)
+    if @list.update(only_list_params)
       redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
     else
       render :edit
@@ -64,14 +64,13 @@ class ListsController < ApplicationController
     ).merge(category: @category)
   end
 
-  # def list_params
-    # @category = Category.find(params[:list][:category_id].to_i)
-    # params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: @category)
-  # end
+  def only_list_params
+    @category = Category.find(params[:list][:category_id].to_i)
+    params.require(:list).permit(:list_title, :list_detail, :priority_id).merge(category: @category)
+  end
 
-  def set_list_list_deadline
+  def set_list
     @list = List.find(params[:id]) 
-    # @list_deadline = ListDeadline.find()
   end
 end
   
