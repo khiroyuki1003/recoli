@@ -61,7 +61,7 @@ class ListsController < ApplicationController
     params.require(:list_list_deadline).permit(
       :category_id, :list_title, :list_detail, :priority_id, 
       :list_deadline_date, :list_deadline_time
-    ).merge(category: @category)
+    ).merge(category: @category, profile: @user.profile)
   end
 
   def only_list_params

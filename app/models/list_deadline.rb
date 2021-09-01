@@ -1,4 +1,5 @@
 class ListDeadline < ApplicationRecord
+  belongs_to :profile
   belongs_to :list 
 
   with_options presence: true do
