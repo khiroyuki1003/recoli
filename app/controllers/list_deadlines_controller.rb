@@ -4,6 +4,12 @@ class ListDeadlinesController < ApplicationController
   def index
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
   def get_user
     if user_signed_in?
@@ -11,3 +17,4 @@ class ListDeadlinesController < ApplicationController
     end
   end
 end
+  
