@@ -6,12 +6,13 @@ class ListDeadlinesController < ApplicationController
   before_action :set_list
   before_action :set_list_deadline, only: [:edit, :update]
 
-  def index
+  def index 
+    @events = ListDeadline.where(profile_id: @user.profile.id)
   end
 
   def edit
   end
- 
+  
   def update
     if @list_deadline.update(list_deadline_params)
       redirect_to profile_category_list_path(@user.profile.id, @category.id, @list.id)
@@ -46,7 +47,7 @@ class ListDeadlinesController < ApplicationController
   end
 
   def list_deadline_params
-    params.require(:list_deadline).permit(:list_deadline_date, :list_deadline_time).merge(list: @list )
+    params.require(:list_deadline).permit(:list_deadline_date, :list_deadline_time).merge(list: @list, profile: @user.profile )
   end
 end
   

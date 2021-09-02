@@ -63,3 +63,5 @@ gem 'active_hash'
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'gon'
