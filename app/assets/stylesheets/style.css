@@ -1,6 +1,6 @@
 a {
   text-decoration: none;
-  color:greenyellow;
+  color:#006a6c;
 }
 
 a:hover{
@@ -38,13 +38,14 @@ li {
 }
 
 .main-contents{
-  background-color: #bee0c2;
+  background-color: #f7fcfe;
   width: calc(100vw - 250px);
   min-height: 100vh;
 }
 
 .category-info{
-  border: solid 1px white;
+  border: solid 2px #88cb7f;
+  border-radius: 2%;
   margin: 20px;
 }
 
