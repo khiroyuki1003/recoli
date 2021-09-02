@@ -1,6 +1,6 @@
 a {
   text-decoration: none;
-  color:greenyellow;
+  color:#006a6c;
 }
 
 a:hover{
@@ -33,18 +33,19 @@ li {
 .side-bar{
   background-color: #202f55;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   width: 250px;
 }
 
 .main-contents{
-  background-color: #bee0c2;
-  height: 100vh;
+  background-color: #f7fcfe;
   width: calc(100vw - 250px);
+  min-height: 100vh;
 }
 
 .category-info{
-  border: solid 1px white;
+  border: solid 2px #88cb7f;
+  border-radius: 2%;
   margin: 20px;
 }
 

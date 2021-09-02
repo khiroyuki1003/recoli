@@ -13,7 +13,8 @@
           </div>
 
           <%= render 'shared/error_messages', model: @list %>
-
+          
+          <%# リストテーブルに保存する情報 %>
           <div class="form-group">
             <div class='form-text-wrap'>
               <label class="form-text">カテゴリ選択</label>
@@ -38,6 +39,36 @@
             </div>
             <%= f.collection_select(:priority_id, Priority.all, :id, :name, {}, {class:"select-box", id:"priority"}) %>
           </div>
+          <%# /リストテーブルに保存する情報 %>
+
+          <%# list_list_deadlineテーブルに保存する情報 %>
+          <div class='form-header'>
+            <h1 class='form-header-text'>
+              達成目標日を設定
+            </h1>
+          </div>
+
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">達成目標日※必須</label>
+            </div>
+            <%= raw sprintf(
+              f.date_select(
+              :list_deadline_date, use_month_numbers: true, 
+              use_two_digit_numbers: true,
+              start_year: Time.now.year,
+              end_year: ( Time.now.year + 100 ),
+              date_separator: '%s'),
+              '年 ', '月 ') + '日' %>
+          </div>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">リマインドする時刻※必須</label>
+            </div>
+            <%= f.time_select(:list_deadline_time, minute_step: 15, default: Date.today + 10.hour ) %>
+          </div>
+          <%# /list_list_deadlineテーブルに保存する情報 %>
+
           <div class='register-btn'>
             <%= f.submit "リスト作成" ,class:"register-red-btn" %>
           </div>
