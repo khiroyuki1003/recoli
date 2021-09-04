@@ -20,6 +20,7 @@ require("fullcalendar/locale-all")
 // const imagePath = (name) => images(name, true)
 
 
+$('#calendar').fullCalendar({});
 
 
   
