@@ -7,9 +7,9 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
 
-        // var profile_id = '<%= @user.profile.id %>';
-        // var category_id = '<%= @category.id %>';
-        // var list_id = '<%= @list.id %>'
+        var profile_id = '<%= @user.profile.id %>';
+        var category_id = '<%= @category.id %>';
+        var list_id = '<%= @list.id %>'
 
 
         var calendarEl = document.getElementById('calendar');
@@ -31,7 +31,7 @@
 
                 // your event source
                 {
-                  url:`/profiles/:profile_id/categories/:category_id/lists/:list_id/list_deadlines`, // use the `url` property
+                  url:`/profiles/ ${profile_id} /categories/ ${category_id} /lists/ ${list_id} /list_deadlines.json`, // use the `url` property
                   color: '#00947a',    // an option!
                   textColor: '#fafdff'  // an option!
                 }
